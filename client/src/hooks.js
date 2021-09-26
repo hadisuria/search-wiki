@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 export const useSearch = (query) => {
@@ -7,10 +7,24 @@ export const useSearch = (query) => {
 		status: "idle",
 		error: "",
 	});
+
+	const cancelToken = useRef(null);
+
+	if (cancelToken.current) {
+		cancelToken.current.cancel("Operation canceled");
+	}
+
 	useEffect(() => {
+		if (query.length < 1) return;
+
+		cancelToken.current = axios.CancelToken.source();
+
 		axios
 			.get(
-				`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${query}`
+				`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${query}`,
+				{
+					cancelToken: cancelToken.current.token,
+				}
 			)
 			.then(function (response) {
 				// handle success
@@ -30,8 +44,10 @@ export const useSearch = (query) => {
 			})
 			.catch(function (error) {
 				// handle error
-				console.log(error);
-				debugger;
+				if (axios.isCancel(error)) {
+					return;
+				}
+
 				setState({
 					articles: [],
 					status: "FAILED",
