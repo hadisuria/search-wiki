@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ReactAutocomplete from "react-autocomplete";
-import { useSearch } from "./hooks";
+import { useSearch, useDebounce } from "./hooks";
 
 function App() {
 	const [value, setValue] = useState("");
-	const [query, setQuery] = useState("");
 
-	useEffect(() => {
-		const timeOutId = setTimeout(() => setQuery(value), 500);
-		return () => clearTimeout(timeOutId);
-	}, [value]);
-
-	const { articles, status, error } = useSearch(query);
+	const { articles, status, error } = useSearch(useDebounce(value, 500));
 
 	return (
 		<ReactAutocomplete
