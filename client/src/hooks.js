@@ -15,7 +15,7 @@ export const useSearch = (query) => {
 	}
 
 	useEffect(() => {
-		if (query.length < 1) return;
+		// if (query.length < 1) return;
 
 		cancelToken.current = axios.CancelToken.source();
 
@@ -35,7 +35,11 @@ export const useSearch = (query) => {
 						label: response.data[1][i],
 					});
 				}
-
+				console.log(parsedResponse);
+				// handling empty string
+				if (parsedResponse[0].id === 0 || parsedResponse[0].label === "!") {
+					parsedResponse = [];
+				}
 				setState({
 					articles: parsedResponse,
 					status: "SUCCESS",
@@ -47,7 +51,6 @@ export const useSearch = (query) => {
 				if (axios.isCancel(error)) {
 					return;
 				}
-
 				setState({
 					articles: [],
 					status: "FAILED",
