@@ -1,17 +1,15 @@
 import React from "react";
-import Container from "./components/Container";
-import Autocomplete from "./components/Autocomplete";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Home, Search, NotFound } from "./pages";
 
 const App = () => (
-	<Container>
-		{({ searchValue, onSearchChange, articles }) => (
-			<Autocomplete
-				articles={articles}
-				onSearchChange={onSearchChange}
-				searchValue={searchValue}
-			/>
-		)}
-	</Container>
+	<Router>
+		<Switch>
+			<Route exact path="/" render={Home} />
+			<Route path="/search" render={Search} />
+			<Route render={NotFound} />
+		</Switch>
+	</Router>
 );
 
 export default App;

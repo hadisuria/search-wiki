@@ -1,14 +1,21 @@
 import React from "react";
 import ReactAutocomplete from "react-autocomplete";
 import Input from "../Input";
+import "./style.scss";
 
 const Autocomplete = ({ articles, searchValue, onSearchChange }) => {
-	console.log("search value", searchValue);
 	return (
 		<ReactAutocomplete
 			items={articles}
 			renderInput={Input}
-			inputProps={{ placeholder: "Input text here..." }}
+			wrapperStyle={{
+				display: "flex",
+				flexDirection: "column",
+				width: "250px",
+			}}
+			inputProps={{
+				placeholder: "Input text here...",
+			}}
 			getItemValue={(item) => item.label}
 			renderMenu={(children, value, style) => {
 				return articles && articles.length ? (
@@ -25,7 +32,17 @@ const Autocomplete = ({ articles, searchValue, onSearchChange }) => {
 			renderItem={(item, highlighted) => (
 				<div
 					key={item.id}
-					style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}
+					style={{
+						backgroundColor: highlighted ? "#eee" : "transparent",
+						marginBottom: "4px",
+						marginTop: "4px",
+						marginRight: "20px",
+						marginLeft: "20px",
+						borderStyle: "solid",
+						borderWidth: "0px",
+						borderBottomWidth: "1px",
+						borderColor: "grey",
+					}}
 				>
 					{item.label}
 				</div>
