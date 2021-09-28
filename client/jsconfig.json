@@ -1,0 +1,7 @@
+{
+	"extends": "./paths.json",
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"jsx": "react"
+	}
+}
