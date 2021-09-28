@@ -9,9 +9,10 @@ const Autocomplete = ({ articles, searchValue, onSearchChange }) => {
 			items={articles}
 			renderInput={Input}
 			wrapperStyle={{
+				// minWidth: "400px",
 				display: "flex",
 				flexDirection: "column",
-				width: "250px",
+				padding: "32px",
 			}}
 			inputProps={{
 				placeholder: "Input text here...",
