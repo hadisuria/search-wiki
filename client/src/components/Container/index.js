@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchForm, useSearch, useDebounce } from "../../hooks";
+import { useSearchForm, useSearch, useDebounce } from "@hooks";
 
 const Container = ({ children }) => {
 	const { searchValue, onSearchChange } = useSearchForm();
