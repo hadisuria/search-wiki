@@ -1,6 +1,6 @@
 import React from "react";
 import ReactAutocomplete from "react-autocomplete";
-import Input from "../Input";
+import Input from "@components/Input";
 import "./style.scss";
 
 const Autocomplete = ({ articles, searchValue, onSearchChange }) => {
