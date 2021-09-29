@@ -1,0 +1,27 @@
+<!--- index.stories.mdx -->
+<!--- Test creating custom docs for component -->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+
+import SearchItem from "./index.js";
+
+<Meta title="Components/SearchItem" component={SearchItem} />
+
+# Search Item
+
+With `MDX`, we can define a story for `Search Item` right in the middle of our
+Markdown documentation.
+
+export const Template = (args) => <SearchItem {...args} />;
+
+<Canvas>
+	<Story
+		name="default"
+		args={{
+			label: "default story",
+			id: "https://id.com/1",
+		}}
+	>
+		{Template.bind({})}
+	</Story>
+</Canvas>
