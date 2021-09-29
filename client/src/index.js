@@ -4,7 +4,9 @@ import App from "./App";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<div style={{ padding: "16px" }}>
+			<App />
+		</div>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

@@ -2,6 +2,7 @@ import React from "react";
 import { useSearch } from "@hooks";
 import Container from "@components/Container";
 import Autocomplete from "@components/Autocomplete";
+import SearchItem from "@components/SearchItem";
 
 const Search = ({ ...props }) => {
 	const search = props.location.search;
@@ -28,11 +29,11 @@ const Search = ({ ...props }) => {
 				<div>
 					{articles.map((article) => {
 						return (
-							<div key={article.id}>
-								<a href={article.id} target="_blank">
-									{article.label}
-								</a>
-							</div>
+							<SearchItem
+								key={article.id}
+								id={article.id}
+								label={article.label}
+							/>
 						);
 					})}
 				</div>
