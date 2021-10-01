@@ -21,7 +21,7 @@
 	"scripts": {
 		"start": "craco start",
 		"build": "craco build",
-		"test": "craco test --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --watchAll=false",
+		"test": "craco test --watchAll=false",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6006 -s public",
 		"build-storybook": "build-storybook -s public"
@@ -71,6 +71,18 @@
 	"jest": {
 		"snapshotSerializers": [
 			"enzyme-to-json/serializer"
-		]
+		],
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx,ts,tsx}",
+			"!src/**/*.stories.{js,jsx,ts,tsx}"
+		],
+		"moduleNameMapper": {
+			"^@root(.*)$": "<rootDir>/src$1",
+			"^@components(.*)$": "<rootDir>/src/components$1",
+			"^@config(.*)$": "<rootDir>/src/config$1",
+			"^@pages(.*)$": "<rootDir>/src/pages$1",
+			"^@assets(.*)$": "<rootDir>/src/assets$1",
+			"^@hooks(.*)$": "<rootDir>/src/hooks$1"
+		}
 	}
 }
