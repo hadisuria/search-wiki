@@ -78,4 +78,14 @@ describe("Autocomplete component", () => {
 			});
 		});
 	});
+
+	describe("when getItemValue is called", () => {
+		beforeEach(() => {
+			sut = render(props);
+		});
+		it("should return correct label", () => {
+			const { getItemValue } = sut.props();
+			expect(getItemValue({ label: "test" })).toBe("test");
+		});
+	});
 });
