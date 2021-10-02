@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Autocomplete component when articles are NOT passed should match snapshot 1`] = `<React.Fragment />`;
+
+exports[`Autocomplete component when articles are passed should match snapshot 1`] = `
+<div
+  className="input-suggestion"
+  style={Object {}}
+>
+  <a
+    className="search-link"
+    href="/search?query=undefined"
+  >
+    See all result
+  </a>
+</div>
+`;
+
+exports[`Autocomplete component when renderItems prop is called When item is NOT highlighted should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "borderBottomWidth": "1px",
+      "borderColor": "grey",
+      "borderStyle": "solid",
+      "borderWidth": "0px",
+      "marginBottom": "4px",
+      "marginLeft": "20px",
+      "marginRight": "20px",
+      "marginTop": "4px",
+    }
+  }
+>
+  Elon Musk
+</div>
+`;
+
+exports[`Autocomplete component when renderItems prop is called When item is highlighted should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#eee",
+      "borderBottomWidth": "1px",
+      "borderColor": "grey",
+      "borderStyle": "solid",
+      "borderWidth": "0px",
+      "marginBottom": "4px",
+      "marginLeft": "20px",
+      "marginRight": "20px",
+      "marginTop": "4px",
+    }
+  }
+>
+  Elon Musk
+</div>
+`;
+
 exports[`Autocomplete component without props should match snapshot 1`] = `
 <Autocomplete
   autoHighlight={true}
