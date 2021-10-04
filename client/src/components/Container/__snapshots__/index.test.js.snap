@@ -5,7 +5,7 @@ exports[`Container component without props should match snapshot 1`] = `
   <Children
     articles={Array []}
     onSearchChange={[Function]}
-    searchValue=""
+    searchValue="testValue"
   >
     <div>
       Test
