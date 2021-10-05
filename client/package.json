@@ -22,20 +22,16 @@
 		"start": "craco start",
 		"build": "craco build",
 		"test": "craco test --watchAll=false",
+		"testcov": "yarn test -u --coverage",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6006 -s public",
 		"build-storybook": "build-storybook -s public"
 	},
 	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		],
+		"extends": ["react-app", "react-app/jest"],
 		"overrides": [
 			{
-				"files": [
-					"**/*.stories.*"
-				],
+				"files": ["**/*.stories.*"],
 				"rules": {
 					"import/no-anonymous-default-export": "off"
 				}
@@ -43,11 +39,7 @@
 		]
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
+		"production": [">0.2%", "not dead", "not op_mini all"],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
@@ -71,9 +63,7 @@
 		"babel-loader": "8.1.0"
 	},
 	"jest": {
-		"snapshotSerializers": [
-			"enzyme-to-json/serializer"
-		],
+		"snapshotSerializers": ["enzyme-to-json/serializer"],
 		"collectCoverageFrom": [
 			"src/**/*.{js,jsx,ts,tsx}",
 			"!src/**/*.stories.{js,jsx,ts,tsx}"
