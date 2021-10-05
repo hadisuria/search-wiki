@@ -49,7 +49,7 @@ export const useSearch = (query = "", limit = 10) => {
 				});
 			})
 			.catch(function (error) {
-				console.log("error", error);
+				// console.log("error", error);
 				// handle error
 				if (axios.isCancel(error)) {
 					return;
