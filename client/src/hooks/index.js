@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 
-export const useSearch = (query, limit = 10) => {
+export const useSearch = (query = "", limit = 10) => {
 	const [state, setState] = useState({
 		articles: [],
 		status: "idle",
 		error: "",
 	});
+	const [testState, setTestState] = useState("");
 
 	const cancelToken = useRef(null);
 
@@ -16,6 +17,8 @@ export const useSearch = (query, limit = 10) => {
 
 	useEffect(() => {
 		// if (query.length < 1) return;
+		// setState({ ...state });
+		// setTestState("testing");
 
 		cancelToken.current = axios.CancelToken.source();
 
@@ -35,7 +38,6 @@ export const useSearch = (query, limit = 10) => {
 						label: response.data[1][i],
 					});
 				}
-				console.log(parsedResponse);
 				// handling empty string
 				if (parsedResponse[0]?.id === 0 || parsedResponse[0]?.label === "!") {
 					parsedResponse = [];
